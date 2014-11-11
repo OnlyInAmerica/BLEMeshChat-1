@@ -203,9 +203,6 @@ static NSString * const kBLEMessagesWriteCharacteristicUUIDString = @"6EAEC220-5
     CBATTError result = CBATTErrorReadNotPermitted;
     CBCentral *central = request.central;
     
-
-    // This is a fresh request. Send complete data payload and cache it
-    // in case we get a follow-up request for a later offset
     if ([requestUUID isEqual:self.messagesReadCharacteristic.UUID]) {
         result = CBATTErrorSuccess;
         BLEIdentityPacket *peer = [self identityForCentral:central];
@@ -217,14 +214,6 @@ static NSString * const kBLEMessagesWriteCharacteristicUUIDString = @"6EAEC220-5
                 return;
             }
             responseData = [messagePacket packetData];
-            BOOL shouldSendData = YES;
-            if (peer) {
-                
-                // Don't send dupe packets
-                if (shouldSendData == NO) {
-                    return;
-                }
-            }
             [self.payloadCache setObject:responseData forKey:requestUUID];
             [self.dataStorage transport:self willWriteMessage:messagePacket toPeer:peer];
         }
