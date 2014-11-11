@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30819ABC1A11BB6A00B32CA8 /* BLEScannerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 30819ABB1A11BB6A00B32CA8 /* BLEScannerRequest.m */; };
 		5AFAD98C8D32B5D6E0EF9FA3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D875EBA6B1062FD39A2B28A /* libPods.a */; };
 		D90CF5E519EC8D2E006222AB /* BLERemotePeer.m in Sources */ = {isa = PBXBuildFile; fileRef = D90CF5E419EC8D2E006222AB /* BLERemotePeer.m */; };
 		D90CF5E819EC8D3C006222AB /* BLEMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D90CF5E719EC8D3C006222AB /* BLEMessage.m */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		2D1361F7F24E9C6CD2AF9A4B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		30819ABB1A11BB6A00B32CA8 /* BLEScannerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEScannerRequest.m; sourceTree = "<group>"; };
+		30819ABD1A11BB8000B32CA8 /* BLEScannerRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEScannerRequest.h; sourceTree = "<group>"; };
 		6D875EBA6B1062FD39A2B28A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90CF5E319EC8D2E006222AB /* BLERemotePeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLERemotePeer.h; sourceTree = "<group>"; };
 		D90CF5E419EC8D2E006222AB /* BLERemotePeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLERemotePeer.m; sourceTree = "<group>"; };
@@ -192,10 +195,17 @@
 		D99FEABC19F0641F003AE5CF /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				D9C4260C19E8A513004F7335 /* BLEScanner.h */,
+				D9C4260D19E8A513004F7335 /* BLEScanner.m */,
+				D9C4260F19E8A52B004F7335 /* BLEBroadcaster.h */,
+				D9C4261019E8A52B004F7335 /* BLEBroadcaster.m */,
+				D9F49A681A0EED030035B1C8 /* BLETransport.h */,
+				D9F49A691A0EED030035B1C8 /* BLETransport.m */,
 				D9F49A6B1A0EED450035B1C8 /* BLEDataStorage.h */,
 				D99FEAB919F0641B003AE5CF /* BLETransportManager.h */,
 				D99FEABA19F0641B003AE5CF /* BLETransportManager.m */,
-				D9F49A6C1A0EF3050035B1C8 /* Transport */,
+				30819ABB1A11BB6A00B32CA8 /* BLEScannerRequest.m */,
+				30819ABD1A11BB8000B32CA8 /* BLEScannerRequest.h */,
 			);
 			name = Transport;
 			sourceTree = "<group>";
@@ -309,19 +319,6 @@
 			name = "Transport Receipts";
 			sourceTree = "<group>";
 		};
-		D9F49A6C1A0EF3050035B1C8 /* Transport */ = {
-			isa = PBXGroup;
-			children = (
-				D9C4260C19E8A513004F7335 /* BLEScanner.h */,
-				D9C4260D19E8A513004F7335 /* BLEScanner.m */,
-				D9C4260F19E8A52B004F7335 /* BLEBroadcaster.h */,
-				D9C4261019E8A52B004F7335 /* BLEBroadcaster.m */,
-				D9F49A681A0EED030035B1C8 /* BLETransport.h */,
-				D9F49A691A0EED030035B1C8 /* BLETransport.m */,
-			);
-			name = Transport;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,7 +371,7 @@
 				TargetAttributes = {
 					D9C425DD19E89D9D004F7335 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 4T8JLQR6GR;
+						DevelopmentTeam = 95RDN7KR2N;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -482,6 +479,7 @@
 				D9D828E619F4F6DE004266F6 /* BLETransportStorage.m in Sources */,
 				D90CF5E819EC8D3C006222AB /* BLEMessage.m in Sources */,
 				D90CF5EF19ECC098006222AB /* BLECrypto.m in Sources */,
+				30819ABC1A11BB6A00B32CA8 /* BLEScannerRequest.m in Sources */,
 				D99FEAB119EF4821003AE5CF /* BLEMessagePacket.m in Sources */,
 				D99FEABB19F0641B003AE5CF /* BLETransportManager.m in Sources */,
 			);
@@ -601,12 +599,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = BLEMeshChat/PrefixHeader.pch;
 				INFOPLIST_FILE = BLEMeshChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dbbba898-7c60-4cf8-83ed-4b0cc1a7a08b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -616,12 +615,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = BLEMeshChat/PrefixHeader.pch;
 				INFOPLIST_FILE = BLEMeshChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dbbba898-7c60-4cf8-83ed-4b0cc1a7a08b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
