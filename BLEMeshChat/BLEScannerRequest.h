@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
  * Called when a response is received following a successful call to performRequestForPeer.
  * 
  * Note : We pass in the characteristic again so we can read offset and value if provided by the peripheral
+ * @return whether the request is complete. If NO, preformRequestForPeripheral will be called again e.g: To request the next item in this series.
  */
 - (BOOL) handleResponseFromPeripheral: (CBPeripheral*) peripheral characteristic: (CBCharacteristic *) characteristic;
 
